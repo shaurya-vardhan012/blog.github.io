@@ -17,7 +17,7 @@ sr.reveal('.head',{
 
 
 sr.reveal('.blog-content',{
-    delay:400});
+    delay:200});
 
 
 sr.reveal('.foot-head',{
@@ -27,9 +27,9 @@ sr.reveal('.foot-head',{
 
 sr.reveal('.fab',{
     origin:'left',
-    delay:400});
+    delay:100});
 
 
-sr.reveal('.copy',{
-    origin:'left',
-    delay:300});
+// sr.reveal('.copy',{
+//     origin:'left',
+//     delay:300});
