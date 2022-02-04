@@ -25,11 +25,11 @@ sr.reveal('.foot-head',{
     delay:200});
 
 
-// sr.reveal('.fab',{
-//     origin:'left',
-//     delay:400});
+sr.reveal('.fab',{
+    origin:'left',
+    delay:400});
 
 
-// sr.reveal('.copy',{
-//     origin:'left',
-//     delay:300});
+sr.reveal('.copy',{
+    origin:'left',
+    delay:300});
