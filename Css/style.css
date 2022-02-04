@@ -12,7 +12,21 @@ a{
     /* background-color: #F8EFBA; */
     /* background-color: #0c2461; */
     background-color: #2C3A47;
-    background:linear-gradient(to bottom,#222f3e,#8395a7,#8395a7,#222f3e);
+    /* background:linear-gradient(to bottom,#222f3e,#8395a7,#8395a7,#222f3e); */
+    background:linear-gradient(to bottom,#222f3e,#5e6b79,#222f3e);
+}
+
+.about
+{
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(to bottom,#222f3e,#222f3e,#222f3e,rgb(26, 25, 25));
+}
+.about-content
+{
+    color: white;
+    padding-bottom: 100px;
+    font-size: 1.3rem;
 }
 .head
 {
@@ -20,6 +34,7 @@ a{
     text-shadow: rgba(0, 0, 0, 0.603) 3px 3px 2px;
     color: white;
 }
+
 .head::after
 {
     background-color: white;
@@ -30,6 +45,7 @@ a{
     height: 3px;
     margin: 20px auto;
 }
+
 .foot-head::after
 {
     background-color: white;
@@ -92,8 +108,8 @@ a{
 
 .foot
 {
-    background-color: rgb(26, 25, 25);
     height: 500px;
+    background-color: rgb(26, 25, 25);
     padding-top: 20px;
     color: white;
     padding-bottom: 20px;
@@ -123,7 +139,7 @@ a{
         position: absolute;
         top: 50%;
         left: 20%;
-        font-size: 2.4rem;
+        font-size: 2.6rem;
         text-align: center;
     }
     .head
