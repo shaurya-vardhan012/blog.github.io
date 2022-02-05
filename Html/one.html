@@ -29,15 +29,6 @@
         width: 100%;
         background-color: #f1f2f6;
     }
-    .comment-head::after
-    {
-        background-color: black;
-        content: "";
-        display: block;
-        width: 100px;
-        height: 3px;
-        margin: 20px auto;
-    }
     .pbot
     {
         padding-bottom: 80px;
@@ -74,10 +65,7 @@
                 <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="contact.html">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -128,34 +116,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 p-5">
-                    <div class="form-group p-3">
-                        <label for="name" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Name</label>
-                        <input type="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter Your Name">
-                        <small id="emailHelp" class="form-text text-muted">Add a comment Below.</small>
-                      </div>
-                      <div class="form-group p-3">
-                          <label for="description" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Comment</label>
-                          <textarea class="form-control" id="description" rows="3"></textarea>
+                    <form action="https://formsubmit.co/" method="POST">
+                        <div class="form-group p-3">
+                            <label for="name" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Name</label>
+                            <input type="title" class="form-control" id="title" aria-describedby="emailHelp" name="name" required placeholder="Enter Your Name">
+                            
                         </div>
-                      <div class="row mt-3">
-                          <div class="col-12 text-center">
-                              <button type="submit" id="add" class="btn btn-primary">Comment</button>
+                        <div class="form-group p-3">
+                            <label for="email" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required aria-describedby="emailHelp" placeholder="Enter your email">
                           </div>
-                      </div>   
+                        <div class="form-group p-3">
+                            <label for="description" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Comment</label>
+                            <textarea class="form-control" placeholder="Leave us a comment" required id="description" name="message" rows="3"></textarea>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <button type="submit" id="add" class="btn btn-primary">Comment</button>
+                            </div>
+                        </div>
+                    </form>   
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 p-3 text-center comment-head">
-                    <h2 class="">Viewers Comments</h2>
-                </div>
-            </div>
-            <div class="row p-5">
-                <table class="table m-auto">
-                    <tbody id="tablebody">
-
-                    </tbody>
-                  </table>
-               
             </div>
             
         </div>
@@ -180,65 +161,6 @@
     </footer>
 
 
-    
-    <script>
-
-        function getAnUpdate()
-        {
-            title=document.getElementById("title").value;
-            description=document.getElementById("description").value;
-            if(localStorage.getItem('itemJson')==null)
-            {
-                itemJsonArray=[];
-                itemJsonArray.push([title,description]);
-                localStorage.setItem('itemJson',JSON.stringify(itemJsonArray));
-            }
-            else
-            {
-                itemJsonArrayStr=localStorage.getItem('itemJson');
-                itemJsonArray=JSON.parse(itemJsonArrayStr);
-                itemJsonArray.push([title,description]);
-                localStorage.setItem('itemJson',JSON.stringify(itemJsonArray));
-            }
-            update();
-        }
-
-        function update()
-        {
-            if(localStorage.getItem('itemJson')==null)
-            {
-                itemJsonArray=[];
-                localStorage.setItem('itemJson',JSON.stringify(itemJsonArray));
-            }
-            else
-            {
-                itemJsonArrayStr=localStorage.getItem('itemJson');
-                itemJsonArray=JSON.parse(itemJsonArrayStr);
-            }
-
-            
-            tablebody=document.getElementById("tablebody");
-            let str="";
-            itemJsonArray.forEach(element => {
-                str+=` <tr>
-                            <td class="text-center">
-                                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                                    <div class="card-body">
-                                    <h5 class="card-title">${element[0]}</h5> <hr>
-                                    <p class="card-text">${element[1]}</p>
-                                    </div>
-                                </div>
-                            </td>
-                        <tr>`;
-            });
-            tablebody.innerHTML=str;
-        }
-
-
-        add=document.getElementById("add");
-        add.addEventListener("click", getAnUpdate);
-        update();
-    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
