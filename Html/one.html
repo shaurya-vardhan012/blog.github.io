@@ -116,10 +116,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 p-5">
-                    <form action="https://formsubmit.co/1bdea9f22b22ffc0bf1ce4f34b68af44" method="POST">
+                    <!-- <form action="https://formsubmit.co/1bdea9f22b22ffc0bf1ce4f34b68af44" method="POST"> -->
+                    <form onsubmit="sendEmail(); reset(); return false;">
                         <div class="form-group p-3">
                             <label for="name" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Name</label>
-                            <input type="title" class="form-control" id="title" aria-describedby="emailHelp" name="name" required placeholder="Enter Your Name">
+                            <input type="title" class="form-control" id="name" aria-describedby="emailHelp" name="name" required placeholder="Enter Your Name">
                             
                         </div>
                         <div class="form-group p-3">
@@ -127,8 +128,8 @@
                             <input type="email" class="form-control" id="email" name="email" required aria-describedby="emailHelp" placeholder="Enter your email">
                           </div>
                         <div class="form-group p-3">
-                            <label for="description" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Comment</label>
-                            <textarea class="form-control" placeholder="Leave us a comment" required id="description" name="message" rows="3"></textarea>
+                            <label for="message" class="pb-3" style="font-weight: 700; font-size: 1.2rem;">Comment</label>
+                            <textarea class="form-control" placeholder="Leave us a comment" required id="message" name="message" rows="3"></textarea>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 text-center">
@@ -165,6 +166,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../Js/index.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail()
+        {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            Email.send({
+                Host : "smtp.gmail.com",
+                Username : "shreyagreat.15@gmail.com",
+                Password : "Shreya@15",
+                To : 'shreyagreat.15@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New Comment",
+                Body : "Name : " + name + "<br>" + "Email : "+ email + "<br>" + "Comment : " + message,
+                }).then(
+                message => 
+                {
+                    alert("Thanks For Giving Us a FeedBack");
+                    window.location.href="one.html";
+
+                }
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script
         src="https://kit.fontawesome.com/993288bb11.js"
         crossorigin="anonymous"></script>
